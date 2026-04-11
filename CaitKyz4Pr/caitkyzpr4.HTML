@@ -3,237 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЖД Билеты - Продажа билетов на поезда дальнего следования</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Layout</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f8f9fa;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-        .header-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 0;
-        }
-        .footer-section {
-            background: #343a40;
-            color: white;
-            padding: 20px 0;
-            margin-top: auto;
-            text-align: center;
-        }
-        main {
-            flex: 1;
-            padding: 30px 0;
-        }
-        .side-block {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .info-block {
-            background: #e3f2fd;
-            border-left: 4px solid #2196F3;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-        .promo-block {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            margin-top: auto;
-        }
-        .express-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
-        .regular-card {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            border-radius: 10px;
-            padding: 30px;
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            height: 800px;
+            background-color: #fca;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .top-block {
+            flex: 0 0 15%;
+            background-color: white;
+        }
+
+        .middle-section {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+        }
+
+        .left-block {
+            flex: 1;
+            background-color: white;
+        }
+
+        .center-blocks {
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 10px;
         }
-        .card-header-custom {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
+
+        .center-top {
+            flex: 1;
+            background-color: white;
         }
-        .price-from {
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 15px;
+
+        .center-bottom {
+            flex: 1;
+            background-color: white;
         }
-        .central-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            height: 100%;
+
+        .right-block {
+            flex: 1;
+            background-color: white;
         }
-        .advantage-item {
-            margin-bottom: 10px;
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .advantage-item:last-child {
-            border-bottom: none;
-        }
-        .contact-info {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #eee;
+
+        .bottom-block {
+            flex: 0 0 15%;
+            background-color: white;
         }
     </style>
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header-section">
-        <div class="container">
-            <h1 class="text-center mb-2">Продажа билетов на поезда дальнего следования</h1>
-        </div>
-    </header>
-
-    <!-- Основная сетка -->
-    <main class="container">
-        <div class="row h-100">
-            <!-- Левая колонка - ОДИН длинный блок -->
-            <div class="col-md-3">
-                <div class="side-block">
-                    <h4 class="mb-4">📢 О компании</h4>
-                    
-                    <div class="info-block">
-                        <h6>✅ Надежность</h6>
-                        <p class="mb-0 small">Более 10 лет на рынке железнодорожных перевозок</p>
-                    </div>
-                    
-                    <div class="info-block">
-                        <h6>✅ Удобство</h6>
-                        <p class="mb-0 small">Покупка билетов онлайн за 5 минут</p>
-                    </div>
-                    
-                    <div class="info-block">
-                        <h6>✅ Выгода</h6>
-                        <p class="mb-0 small">Лучшие цены и регулярные акции</p>
-                    </div>
-                    
-                    <div class="info-block">
-                        <h6>✅ Поддержка 24/7</h6>
-                        <p class="mb-0 small">Всегда на связи с клиентами</p>
-                    </div>
-
-                    <div class="promo-block">
-                        <h5>🎉 Специальное предложение!</h5>
-                        <p class="mb-3">Скидка 15% на первый заказ</p>
-                        <button class="btn btn-light btn-sm w-100">Подробнее</button>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="top-block"></div>
+        
+        <div class="middle-section">
+            <div class="left-block"></div>
+            
+            <div class="center-blocks">
+                <div class="center-top"></div>
+                <div class="center-bottom"></div>
             </div>
-
-            <!-- Центральная колонка - два блока -->
-            <div class="col-md-6">
-                <div class="central-column">
-                    <!-- Верхний блок - Поезд экспресс -->
-                    <div class="express-card">
-                        <div class="card-header-custom">🚄 Поезд экспресс</div>
-                        <div class="row text-center mb-3">
-                            <div class="col-4">
-                                <div class="small">Москва → СПб</div>
-                                <div class="fw-bold">8 часов</div>
-                            </div>
-                            <div class="col-4">
-                                <div class="small">Москва → Казань</div>
-                                <div class="fw-bold">12 часов</div>
-                            </div>
-                            <div class="col-4">
-                                <div class="small">Москва → Н.Новгород</div>
-                                <div class="fw-bold">4 часа</div>
-                            </div>
-                        </div>
-                        <div class="price-from">от 1 250 ₽</div>
-                        <p class="text-center mb-0 small">Скоростные поезда с максимальным комфортом</p>
-                    </div>
-
-                    <!-- Нижний блок - Обычный поезд -->
-                    <div class="regular-card">
-                        <div class="card-header-custom">🚂 Обычный поезд</div>
-                        <div class="row text-center mb-3">
-                            <div class="col-4">
-                                <div class="small">Москва → Сочи</div>
-                                <div class="fw-bold">24 часа</div>
-                            </div>
-                            <div class="col-4">
-                                <div class="small">Москва → Екатеринбург</div>
-                                <div class="fw-bold">16 часов</div>
-                            </div>
-                            <div class="col-4">
-                                <div class="small">СПб → Москва</div>
-                                <div class="fw-bold">6 часов</div>
-                            </div>
-                        </div>
-                        <div class="price-from">от 1 890 ₽</div>
-                        <p class="text-center mb-0 small">Комфортабельные вагоны для дальних поездок</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Правая колонка - ОДИН длинный блок -->
-            <div class="col-md-3">
-                <div class="side-block">
-                    <div class="contact-info">
-                        <h4 class="mb-3">📱 Контакты</h4>
-                        <p><strong>Телефон:</strong><br>8 (800) 555-35-35</p>
-                        <p><strong>Email:</strong><br>info@rzd-tickets.ru</p>
-                        <p><strong>Адрес:</strong><br>г. Москва, ул. Примерная, д. 1</p>
-                        <div class="mt-3">
-                            <h6 class="mb-2">Мы в соцсетях:</h6>
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-outline-primary btn-sm flex-fill">VK</button>
-                                <button class="btn btn-outline-primary btn-sm flex-fill">TG</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; border-radius: 5px;">
-                        <h5 class="mb-3">💡 Преимущества</h5>
-                        <div class="advantage-item">✓ Электронные билеты</div>
-                        <div class="advantage-item">✓ Возврат 24/7</div>
-                        <div class="advantage-item">✓ Выбор мест</div>
-                        <div class="advantage-item">✓ Скидки пенсионерам</div>
-                        <div class="advantage-item">✓ Детские тарифы</div>
-                    </div>
-                </div>
-            </div>
+            
+            <div class="right-block"></div>
         </div>
-    </main>
-
-    <!-- Футер -->
-    <footer class="footer-section">
-        <div class="container">
-            <p class="mb-0">&copy; 2024 ЖД Билеты. Все права защищены.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <div class="bottom-block"></div>
+    </div>
 </body>
 </html>
