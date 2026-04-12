@@ -1,96 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Layout</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    height: 100vh;
+    padding: 4px;
+    background-color: #ffccaa; /* Цвет разделителей */
+  }
 
-        .container {
-            width: 100%;
-            max-width: 600px;
-            height: 800px;
-            background-color: #fca;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+  /* Главный контейнер - вертикальный flex */
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 220vh;
+    gap: 4px;
+  }
 
-        .top-block {
-            flex: 0 0 15%;
-            background-color: white;
-        }
+  /* Верхний блок */
+  .header {
+    background-color: #fff;
+    flex: 0 0 120px; /* Фиксированная высота */
+    position: relative;
+  }
 
-        .middle-section {
-            flex: 1;
-            display: flex;
-            gap: 10px;
-        }
+  /* Номер 13 */
+  .header::before {
+    content: "13";
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
 
-        .left-block {
-            flex: 1;
-            background-color: white;
-        }
+  /* Средняя часть - горизонтальный flex */
+  .middle {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    flex: 1; /* Занимает всё доступное пространство */
+  }
 
-        .center-blocks {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+  /* Левая колонка */
+  .left {
+    background-color: #fff;
+    flex: 1.2; /* Ширина пропорциональна */
+  }
 
-        .center-top {
-            flex: 1;
-            background-color: white;
-        }
+  /* Центральная колонка - вертикальный flex */
+  .center {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 0.8;
+  }
 
-        .center-bottom {
-            flex: 1;
-            background-color: white;
-        }
+  .center-top, .center-bottom {
+    background-color: #fff;
+    flex: 1; /* Делят высоту пополам */
+  }
 
-        .right-block {
-            flex: 1;
-            background-color: white;
-        }
+  /* Правая колонка */
+  .right {
+    background-color: #fff;
+    flex: 1.2;
+  }
 
-        .bottom-block {
-            flex: 0 0 15%;
-            background-color: white;
-        }
-    </style>
+  /* Нижний блок */
+  .footer {
+    background-color: #fff;
+    flex: 0 0 120px;
+  }
+
+  /* Опционально: текст для демонстрации */
+  .left::after {
+    content: "Левый блок";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.2rem;
+    color: #999;
+  }
+
+  .right::after {
+    content: "Правый блок";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.2rem;
+    color: #999;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="top-block"></div>
-        
-        <div class="middle-section">
-            <div class="left-block"></div>
-            
-            <div class="center-blocks">
-                <div class="center-top"></div>
-                <div class="center-bottom"></div>
-            </div>
-            
-            <div class="right-block"></div>
-        </div>
-        
-        <div class="bottom-block"></div>
+
+<div class="container">
+  <div class="header"></div>
+  
+  <div class="middle">
+    <div class="left"></div>
+    
+    <div class="center">
+      <div class="center-top"></div>
+      <div class="center-bottom"></div>
     </div>
+    
+    <div class="right"></div>
+  </div>
+  
+  <div class="footer"></div>
+</div>
+
 </body>
 </html>
