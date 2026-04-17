@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flexbox Layout</title>
 <style>
+  /* Базовый сброс */
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -13,27 +14,26 @@
 
   body {
     font-family: system-ui, -apple-system, sans-serif;
-    height: 100vh;
-    padding: 4px;
-    background-color: #ffccaa; /* Цвет разделителей */
+    background-color: #ffccaa; /* Цвет линий-разделителей */
+    padding: 4px;             /* Внешняя рамка */
   }
 
-  /* Главный контейнер - вертикальный flex */
+  /* Главный вертикальный контейнер */
   .container {
     display: flex;
     flex-direction: column;
-    height: 220vh;
-    gap: 4px;
+    min-height: 100vh;        /* Растягивается на весь экран, но позволяет расти вниз → появляется скролл */
+    gap: 4px;                 /* Толщина внутренних разделителей */
   }
 
-  /* Верхний блок */
+  /* Шапка */
   .header {
     background-color: #fff;
-    flex: 0 0 120px; /* Фиксированная высота */
+    height: 120px;            /* Фиксированная высота */
     position: relative;
   }
 
-  /* Номер 13 */
+  /* Цифра 13 в шапке */
   .header::before {
     content: "13";
     position: absolute;
@@ -44,21 +44,21 @@
     color: #333;
   }
 
-  /* Средняя часть - горизонтальный flex */
+  /* Средняя часть (горизонтальный flex) */
   .middle {
     display: flex;
     flex-direction: row;
     gap: 4px;
-    flex: 1; /* Занимает всё доступное пространство */
+    flex: 1;                  /* Занимает свободное место, но растёт при переполнении → скролл */
   }
 
-  /* Левая колонка */
-  .left {
+  /* Левая и правая колонки */
+  .left, .right {
     background-color: #fff;
-    flex: 1.2; /* Ширина пропорциональна */
+    flex: 1.2;                /* Пропорции ширины */
   }
 
-  /* Центральная колонка - вертикальный flex */
+  /* Центральная колонка (вертикальный flex) */
   .center {
     display: flex;
     flex-direction: column;
@@ -68,34 +68,19 @@
 
   .center-top, .center-bottom {
     background-color: #fff;
-    flex: 1; /* Делят высоту пополам */
+    flex: 1;                  /* Делят центр строго пополам */
   }
 
-  /* Правая колонка */
-  .right {
-    background-color: #fff;
-    flex: 1.2;
-  }
-
-  /* Нижний блок */
+  /* Подвал */
   .footer {
     background-color: #fff;
-    flex: 0 0 120px;
+    height: 120px;            /* Фиксированная высота */
   }
 
-  /* Опционально: текст для демонстрации */
-  .left::after {
-    content: "Левый блок";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: 1.2rem;
-    color: #999;
-  }
-
-  .right::after {
-    content: "Правый блок";
+  /* Заглушки текста для наглядности */
+  .left::after, .right::after, 
+  .center-top::after, .center-bottom::after {
+    content: "Блок";
     display: flex;
     align-items: center;
     justify-content: center;
