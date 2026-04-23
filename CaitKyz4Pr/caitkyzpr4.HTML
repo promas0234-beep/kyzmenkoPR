@@ -3,106 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Макет</title>
+    <title>бб</title>
     <style>
-        /* Базовые настройки */
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        body {
-            background-color: #ffffff;
-            min-height: 200vh;
-        }
-
-        /* ГЛАВНЫЙ КОНТЕЙНЕР (Занимает весь экран + скролл) */
-        .main-container {
+        html, body {
             width: 100%;
-            /* Высота 200% от экрана вызывает появление скролла */
-            min-height: 300vh; 
-            background-color: #ffb380; /* Цвет оранжевых линий */
-            display: flex;
-            flex-direction: column;
+            height: 220vh; 
+        }
+
+        .layout {
+            width: 100%;
+            height: 100%;
+            display: grid;
             
-            padding: 10px;   /* Внешняя оранжевая рамка */
-            gap: 10px;       /* Расстояние между блоками (внутренние линии) */
+            grid-template-rows: 500px 250px 1fr 450px;
             
-            /* Серая внешняя рамка как на макете */
-            border: 3px solid #d3d3d3; 
+            grid-template-columns: 23% 1fr 23%;
         }
 
-        /* ВЕРХ (Header) */
-        header {
-            background-color: #ffffff;
-            /* Блок занимает 15% высоты */
-            flex: 0 0 20%;
-            /* Минимальная высота, чтобы блок точно был виден */
-            min-height: 100px; 
+        .header {
+            grid-column: 1 / -1;
+            background-color: #333; 
         }
 
-        /* СЕРЕДИНА (Обертка для колонок) */
-        .middle-section {
-            flex: 1; /* Занимает всё оставшееся место */
-            display: flex;
-            flex-direction: row;
-            gap: 5px; /* Оранжевые линии между колонками */
+        .menu {
+            grid-column: 1 / -1;
+            background-color: #e5e5e5;
         }
 
-        /* Боковые колонки (Левая и Правая) */
-        .col-side {
-            background-color: #ffffff;
-            flex: 1; /* Ширина колонок одинаковая */
+        .left-sidebar {
+            grid-column: 1;
+            grid-row: 3;
+            background-color: #777;
         }
 
-        /* Центральная колонка (Разделена на два блока) */
-        .col-center {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 5px; /* Оранжевая линия посередине */
+
+        .content {
+            grid-column: 2;
+            grid-row: 3;
+            background-color: #fff;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
         }
 
-        /* Два блока внутри центральной колонки */
-        .col-center div {
-            background-color: #ffffff;
-            flex: 1; /* Делят высоту центральной колонки поровну */
+        .right-sidebar {
+            grid-column: 3;
+            grid-row: 3;
+            background-color: #777;
         }
 
-        /* ПОДВАЛ (Footer) */
-        footer {
-            background-color: #ffffff;
-            /* Блок занимает 20% высоты */
-            flex: 0 0 50%;
-            /* Минимальная высота */
-            min-height: 120px;
+        .footer {
+            grid-column: 1 / -1;
+            background-color: #999;
         }
+
     </style>
 </head>
 <body>
 
-    <!-- Единый контейнер на всю страницу -->
-    <div class="main-container">
+    <div class="layout">
 
-        <!-- ВЕРХ (Header) -->
-        <header></header>
-
-        <!-- СЕРЕДИНА -->
-        <div class="middle-section">
-            <div class="col-side"></div>
-            
-            <div class="col-center">
-                <div></div>
-                <div></div>
-            </div>
-            
-            <div class="col-side"></div>
-        </div>
-
-        <!-- ПОДВАЛ (Footer) -->
-        <footer class="footer"></footer>
-
+        <div class="header"></div>
+        
+        <div class="menu"></div>
+        
+        <div class="left-sidebar"></div>
+        
+        <div class="content"></div>
+        
+        <div class="right-sidebar"></div>
+        
+        <div class="footer"></div>
     </div>
 
 </body>
